@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Geom:ital,wght@0,300..900;1,300..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>Dashboard</title>
+  <style>
+  * {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --page-hieght: 100vh;
+    --page-padding: 2.5rem;
+    --color-start: #d0e4f2;
+    --color-end: #dfd5e4;
+}
+
+
+
+body {
+    height: var(--page-hieght);
+    padding: var(--page-padding);
+    background: linear-gradient(135deg, var(--color-start), var(--color-end));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container {
+    background-color: #fff;
+    border-radius: 2.5px solid #ffffff3f;
+    border-radius: 16px;
+    padding: 10px;
+    height: 90vh;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.menu {
+    height: 100%;
+    width: 25%;
+    /* background-color: rgba(95, 94, 94, 0.774); */
+}
+
+.menu h2 {
+    font-family: "Cairo", sans-serif;
+    color: #444;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    color: #444;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-item i {
+    font-size: 16px;
+    color: #666;
+}
+
+.menu-item:hover {
+    background: #f0f2ff;
+    color: #5a4fdc;
+}
+
+.menu-item:hover i {
+    color: #5a4fdc;
+}
+
+.main-panal {
+    display: grid;
+    grid-template-rows: auto 1fr 1fr;
+    height: 100%;
+    width: 90%;
+}
+
+.v-hr1 {
+    width: 1px;
+    height: 100%;
+    background-color: #e0e0e0;
+}
+
+
+.header {
+    width: 100%;
+    height: 50px;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 20px;
+    align-items: center;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-right: 90px;
+}
+
+.calendar i {
+    color: #5a4fdc;
+}
+
+.input-container {
+    position: relative;
+    width: 260px;
+    margin-left:250px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 10px 20px 10px 12px;
+    border-radius: 15px;
+    border: 1.5px solid #ddd;
+    outline: none;
+}
+
+.input-container i {
+    position: absolute;
+    right: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #e6e6e6;
+    background-color: #a3a3a3;
+    padding: 5px;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url("https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    position: relative
+}
+
+.profile::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    background-color: #ff4727;
+}
+
+.v-hr2 {
+    width: 1px;
+    height: 100%;
+    background-color: #ddd;
+}
+
+.mid-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: #ddd; */
+}
+
+.cont {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    gap: 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cont .pack {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    padding: 4px;
+    border-radius: 15px;
+    color: black;
+    width: 140px;
+}
+
+.pack .two {
+    background-color: #ddd;
+    padding: 5px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.card-1,
+.card-2,
+.card-3 {
+    height: 150px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 25px;
+}
+
+.cards div h1 {
+    font-weight: bold;
+    font-size: 17px;
+    font-family: 'Cairo';
+}
+
+.cards div .into {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+}
+
+.card-1 .into h2 {
+    color: #3664a9;
+}
+
+.card-2 .into h2 {
+    color: #3b2b92;
+}
+
+.card-3 .into h2 {
+    color: #ef8345;
+}
+
+.card-1 {
+    background-color: #edf6ff;
+}
+
+.card-2 {
+    background-color: #f6f4ff;
+}
+
+.card-3 {
+    background-color: #ffece7;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 4px;
+}
+
+.orders-table thead {
+    background-color: #f1f1f1;
+}
+
+.orders-table th,
+.orders-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.orders-table th {
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.orders-table td {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Status colors */
+.status-delivered {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+.status-cancelled {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+th:nth-child(1)::before {
+    content: "🆔 ";
+}
+
+th:nth-child(2)::before {
+    content: "📅 ";
+}
+
+th:nth-child(3)::before {
+    content: "📦 ";
+}
+
+th:nth-child(4)::before {
+    content: "💲 ";
+}
+
+th:nth-child(5)::before {
+    content: "📊 ";
+}
+  </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="menu">
+            <h2>Dashboard</h2>
+
+            <div class="icons">
+                <div class="menu-item"><i class="fa-solid fa-tachometer-alt"></i>Dashboard</div>
+                <div class="menu-item"><i class="fa-solid fa-box"></i>Orders</div>
+                <div class="menu-item"><i class="fa-solid fa-user"></i>Clients</div>
+                <div class="menu-item"><i class="fa-solid fa-chart-line"></i>Statistics</div>
+                <div class="menu-item"><i class="fa-solid fa-dollar-sign"></i>Finace</div>
+                <div class="menu-item"><i class="fa-solid fa-circle-question"></i>FQA</div>
+                <div class="menu-item"><i class="fa-solid fa-headset"></i>Support</div>
+                <div class="menu-item" style="margin-top: 35px;"><i class="fa-solid fa-right-from-bracket"></i>Log Out
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="v-hr1"></div>
+
+
+        <div class="main-panal">
+            <div class="header">
+                <div class="calendar">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    October 19,2025
+                </div>
+
+                <div class="input-container">
+                    <input type="text">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+                <i class="fa-solid fa-bell"></i>
+
+                <div class="v-hr2"></div>
+
+                <div class="profile"></div>
+            </div>
+
+            <div class="mid-content">
+
+                <div class="cont">
+
+                    <h1>Orders</h1>
+
+                    <div class="pack">
+                        <p>Daily</p>
+                        <p class="two">Monthly</p>
+                    </div>
+                </div>
+
+                <div class="cards">
+
+                    <div class="card-1">
+                        <h1>New Order</h1>
+                        <div class="into">
+                            <h2>245</h2>
+                            <div class="v-hr2" style="border-color:black ;"></div>
+                            <p>Impression <span style="color:#3664a9;font-weight: bold;">20%</span></p>
+                        </div>
+                    </div>
+
+                    <div class="card-2">
+                        <h1>Pending Orders</h1>
+                        <div class="into">
+                            <h2>123</h2>
+                            <div class="v-hr2" style="border-color:black ;"></div>
+                            <p>Impression <span style="color:#3b2b92;font-weight: bold;">11%</span></p>
+                        </div>
+                    </div>
+
+                    <div class="card-3">
+                        <h1>Delivered Orders</h1>
+                        <div class="into">
+                            <h2>150</h2>
+                            <div class="v-hr2" style="border-color:black ;"></div>
+                            <p>Impression <span style="color:#ef8345;font-weight: bold;">18%</span></p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Ordered Date</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#123245</td>
+                        <td>14-12-2020</td>
+                        <td>Decorative box</td>
+                        <td>125 USD</td>
+                        <td class="status-delivered">Delivered</td>
+                    </tr>
+                    <tr>
+                        <td>#678457</td>
+                        <td>13-12-2020</td>
+                        <td>Plantation box</td>
+                        <td>120 USD</td>
+                        <td class="status-cancelled">Cancelled</td>
+                    </tr>
+                    <tr>
+                        <td>#123245</td>
+                        <td>12-12-2020</td>
+                        <td>Camera film</td>
+                        <td>156 USD</td>
+                        <td class="status-delivered">Delivered</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+</body>
+
+</html>
